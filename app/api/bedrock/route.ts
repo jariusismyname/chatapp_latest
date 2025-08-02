@@ -2,7 +2,7 @@ import { bedrockClient } from "@/lib/awsClient";
 import { InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
 import { NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+export async function POST(req: Request): Promise<Response> {
   const { prompt } = await req.json();
 
   const input = {
