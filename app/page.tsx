@@ -31,41 +31,46 @@ export default function ChatApp() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-white p-6">
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 flex flex-col h-[90vh]">
-        <h1 className="text-3xl font-bold text-indigo-700 mb-6 text-center">🧠 AI Chat with Claude</h1>
+    <main className="min-h-screen bg-gradient-to-br from-indigo-100 to-white p-4 sm:p-6">
+  <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col h-[90vh]">
+    <h1 className="text-2xl sm:text-3xl font-bold text-indigo-700 mb-4 sm:mb-6 text-center">
+      🧠 AI Chat with Claude
+    </h1>
 
-        <div className="flex-1 overflow-y-auto space-y-4 px-2">
-          {messages.map((msg, i) => (
-            <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-              <div
-                className={`max-w-xs px-4 py-2 rounded-xl text-sm leading-relaxed shadow-md ${
-                  msg.role === "user"
-                    ? "bg-indigo-200 text-indigo-900"
-                    : "bg-gray-100 text-gray-900"
-                }`}
-              >
-                {msg.content}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-4 flex items-center">
-          <input
-className="flex-1 border border-indigo-300 rounded-l-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-black"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
-          />
-          <button
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-r-xl font-semibold transition"
-            onClick={sendMessage}
+    {/* Chat messages */}
+    <div className="flex-1 overflow-y-auto space-y-4 px-1 sm:px-2">
+      {messages.map((msg, i) => (
+        <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+          <div
+            className={`max-w-[80%] sm:max-w-xs px-4 py-2 rounded-xl text-sm leading-relaxed shadow-md ${
+              msg.role === "user"
+                ? "bg-indigo-200 text-indigo-900"
+                : "bg-gray-100 text-gray-900"
+            }`}
           >
-            Send
-          </button>
+            {msg.content}
+          </div>
         </div>
-      </div>
-    </main>
+      ))}
+    </div>
+
+    {/* Input area */}
+    <div className="mt-4 flex flex-col sm:flex-row items-stretch gap-2 sm:gap-0">
+      <input
+        className="flex-1 border border-indigo-300 rounded-xl sm:rounded-l-xl sm:rounded-r-none px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-black"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Type your message..."
+      />
+      <button
+        className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-xl sm:rounded-r-xl sm:rounded-l-none font-semibold transition"
+        onClick={sendMessage}
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</main>
+
   );
 }
