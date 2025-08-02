@@ -53,7 +53,7 @@ export default function ChatApp() {
 
         <div className="mt-4 flex items-center">
           <input
-            className="flex-1 border border-indigo-300 rounded-l-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+className="flex-1 border border-indigo-300 rounded-l-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400 text-black"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
